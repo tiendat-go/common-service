@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package crypto.v1;
+
+option go_package = "/gen/go/crypto/v1";
+
+service CryptoService {
+    rpc GetKlinesBySymbol(GetKlinesBySymbolRequest) returns (GetKlinesBySymbolResponse) {}
+}
+
+message KlineData {
+    optional int64 open_time = 1;
+    optional double open = 2;
+    optional double high = 3;
+    optional double low = 4;
+    optional double close = 5;
+    optional double volume = 6;
+    optional int64 close_time = 7;
+}
+
+message GetKlinesBySymbolRequest {
+    int64 end_time = 1;
+    int32 limit = 2;
+    string symbol = 3;
+    string interval = 4;
+}
+
+message GetKlinesBySymbolResponse {
+    repeated KlineData data = 1;
+}
