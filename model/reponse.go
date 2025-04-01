@@ -26,9 +26,9 @@ const (
 
 type Response struct {
 	Code      ResponseCode `json:"code"`
-	Data      any          `json:"data"`
+	Data      *any         `json:"data,omitempty"`
 	Success   bool         `json:"success"`
 	Message   string       `json:"message"`
-	Total     *int64       `json:"total"`
-	NextToken *string      `json:"nextToken"`
+	Total     *int64       `json:"total,omitempty"`
+	NextToken *string      `json:"nextToken,omitempty"`
 }
